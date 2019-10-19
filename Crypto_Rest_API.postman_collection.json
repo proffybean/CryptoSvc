@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "3d68581e-3588-47a1-ba4c-d5c624959f8f",
+		"name": "Crypto Rest API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crypto",
+			"item": [
+				{
+					"name": "Encrypt AES",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"ClearText\" : {\r\n\t\t\"Text\": \"Hello world, what is up\",\r\n\t\t\"Encoding\":\"base64\"\r\n\t},\r\n\t\t\"CipherText\" : {\r\n\t\t\"Text\":\"mBmVGmQNLpxJWE6A859/wyjF6384jLuJTl9c4yTnFR0=\",\r\n\t\t\"Encoding\":\"base64\"\r\n\t},\r\n\t\t\"Operation\":{\r\n\t\t\"Task\":\"encrypt\",\r\n\t\t\"Algorithm\" : \"AES\"\r\n\t},\r\n\t\"AlgInfo\" : {\r\n\t\t\"Key\" : \"HWRmYySiPPTOwtoc/EbO+g==\",\r\n\t\t\"IV\" : \"3QspARSNss1O4/3OrnVuMw==\",\r\n\t\t\"Padding\" : \"PKCS7\",\r\n\t\t\"CipherMode\" : \"CBC\"\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{port}}/api/Values",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"Values"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encrypt DES",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClearText\" : {\r\n    \"Text\": \"hello world\",\r\n    \"Encoding\":\"Ascii\"\r\n  },\r\n  \"CipherText\" : {\r\n    \"Text\" : \"t3j5QXFeyyJ6PARaHCtGww==\",\r\n    \"Encoding\":\"base64\"\r\n  },\r\n  \"Operation\" : {\r\n    \"Task\": \"decrypt\",\r\n    \"Algorithm\" : \"DES\"\r\n  },\r\n  \"AlgInfo\" : {\r\n    \"Key\" : \"pskUaxxVk5Y=\",\r\n    \"IV\" : \"OPLUd39wTTk=\",\r\n    \"Padding\" : \"PKCS7\",\r\n    \"CipherMode\" : \"CBC\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{port}}/api/Values",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"Values"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encrypt TrippleDES",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClearText\" : {\r\n    \"Text\": \"Hello world\",\r\n    \"Encoding\":\"base64\"\r\n  },\r\n  \"CipherText\" : {\r\n    \"Text\":\"Iytj2UEnOkKXfYvGIjCZiQ==\",\r\n    \"Encoding\":\"base64\"\r\n  },\r\n  \"Operation\":{\r\n    \"Task\":\"encrypt\",\r\n    \"Algorithm\" : \"tdes\"\r\n  },\r\n  \"AlgInfo\" : {\r\n    \"Key\" : \"qE+j/QlIFP7ZygbCNJ6wyl+Qb2FqU9la\",\r\n    \"IV\" : \"1gy/TFhQOLo=\",\r\n    \"Padding\" : \"PKCS7\",\r\n    \"CipherMode\" : \"CBC\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{port}}/api/Values",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"Values"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Hash",
+			"item": [
+				{
+					"name": "Hash MD5",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClearText\" : {\r\n    \"Text\": \"Hello world\",\r\n    \"Encoding\":\"ascii\"\r\n  },\r\n  \"Hash\" : {\r\n    \"Text\":\"\",\r\n    \"Encoding\":\"base64\"\r\n  },\r\n  \"Operation\":{\r\n    \"Task\":\"hash\",\r\n    \"Alg\" : \"md5\",\r\n    \"Size\" : \"512\"\r\n  },\r\n  \"Info\" : {\r\n    \"Salt\" : null,\r\n    \"Pepper\" : \"false\",\r\n    \"Key\" : null\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{port}}/api/hash",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"hash"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hash SHA2 512",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClearText\" : {\r\n    \"Text\": \"Hello world\",\r\n    \"Encoding\":\"ascii\"\r\n  },\r\n  \"Hash\" : {\r\n    \"Text\":\"\",\r\n    \"Encoding\":\"base64\"\r\n  },\r\n  \"Operation\":{\r\n    \"Task\":\"hash\",\r\n    \"Alg\" : \"sha2\",\r\n    \"Size\" : \"512\"\r\n  },\r\n  \"Info\" : {\r\n    \"Salt\" : null,\r\n    \"Pepper\" : \"false\",\r\n    \"Key\" : null\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{port}}/api/hash",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"hash"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hash MD5 Salt & Pepper",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClearText\" : {\r\n    \"Text\": \"Hello world\",\r\n    \"Encoding\":\"ascii\"\r\n  },\r\n  \"Hash\" : {\r\n    \"Text\":\"\",\r\n    \"Encoding\":\"base64\"\r\n  },\r\n  \"Operation\":{\r\n    \"Task\":\"hash\",\r\n    \"Alg\" : \"md5\",\r\n    \"Size\" : \"512\"\r\n  },\r\n  \"Info\" : {\r\n    \"Salt\" : \"nacl\",\r\n    \"Pepper\" : \"true\",\r\n    \"Key\" : null\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{port}}/api/hash",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"hash"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
