@@ -32,25 +32,65 @@ namespace CryptoSvc.Factories
             }
         }
 
+        //public IHasher Instantiate(Operation operation, string key = null)
+        //{
+        //    string hashType = operation.Alg.ToLower();
+
+        //    if (hashType == "sha2")
+        //    {
+        //        hashType = "sha" + operation.Size;
+        //    }
+
+        //    if (key != null)
+        //    {
+        //        if (hashType == "sha2")
+        //        {
+        //            hashType = "HMAC" + operation.Alg.ToUpper() + operation.Size;
+        //        }
+        //        else
+        //        {
+        //            hashType = "HMAC" + operation.Alg.ToUpper();
+        //        }
+        //    }
+
+        //    Type type = GetTypeToCreate(hashType);
+
+        //    if (type == null)
+        //    {
+        //        return new NullHasher();
+        //    }
+        //    else if (type.Name.ToLower().StartsWith("hmac"))
+        //    {
+        //        return Activator.CreateInstance(type, key) as IHasher;
+        //    }
+
+        //    return Activator.CreateInstance(type) as IHasher;
+        //}
+
         public IHasher Instantiate(Operation operation, string key = null)
         {
+            //
+            // Create the C# Crypto Hash class name
+            //
             string hashType = operation.Alg.ToLower();
 
-            if (hashType == "sha2")
-            {
-                hashType = "sha" + operation.Size;
-            }
-
+            //
+            // Check for HMAC
+            //
             if (key != null)
             {
                 if (hashType == "sha2")
                 {
-                    hashType = "HMAC" + operation.Alg.ToUpper() + operation.Size;
+                    hashType = "HMAC" + "SHA" + operation.Size;
                 }
                 else
                 {
                     hashType = "HMAC" + operation.Alg.ToUpper();
                 }
+            }
+            else if (hashType == "sha2")
+            {
+                hashType = "sha" + operation.Size;
             }
 
             Type type = GetTypeToCreate(hashType);

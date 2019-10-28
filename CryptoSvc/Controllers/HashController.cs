@@ -12,7 +12,7 @@ namespace CryptoSvc.Controllers
     {
         public IHttpActionResult Post([FromBody] HashRequest hashRequest)
         {
-            IHasher hasher = new HashFactory().Instantiate(hashRequest.Operation);
+            IHasher hasher = new HashFactory().Instantiate(hashRequest.Operation, hashRequest.Info.Key);
 
             byte[] stringToHash = CalculateStringToHash(hashRequest);
 
