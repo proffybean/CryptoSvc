@@ -170,6 +170,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hashers\HmacMd5Hasher.cs" />
+    <Compile Include="Hashers\HmacSHA1Hasher.cs" />
+    <Compile Include="Hashers\HmacSHA256Hasher.cs" />
+    <Compile Include="Hashers\HmacSHA512Hasher.cs" />
     <Compile Include="Hashers\IHasher.cs" />
     <Compile Include="Hashers\MD5Hasher.cs" />
     <Compile Include="Hashers\NullHasher.cs" />

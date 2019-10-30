@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using System.Security.Cryptography;
 
 namespace CryptoSvc.Hashers
@@ -13,7 +12,7 @@ namespace CryptoSvc.Hashers
             _hasher = new HMACMD5(key);
         }
 
-        public HmacMd5Hasher(string key) : this(Encoding.UTF8.GetBytes(key)) { }
+        public HmacMd5Hasher(string key) : this(Convert.FromBase64String(key)) { }
 
         public byte[] Hash(byte[] buffer)
         {

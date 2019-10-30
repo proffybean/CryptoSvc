@@ -232,6 +232,156 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "HMAC",
+			"item": [
+				{
+					"name": "MD5",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClearText\" : {\r\n    \"Text\": \"Hello world\",\r\n    \"Encoding\":\"ascii\"\r\n  },\r\n  \"Hash\" : {\r\n    \"Text\":\"\",\r\n    \"Encoding\":\"base64\"\r\n  },\r\n  \"Operation\":{\r\n    \"Task\":\"hash\",\r\n    \"Alg\" : \"md5\",\r\n    \"Size\" : \"512\"\r\n  },\r\n  \"Info\" : {\r\n    \"Salt\" : null,\r\n    \"Pepper\" : \"false\",\r\n    \"Key\" : \"cEIX6eKxCHm1w2ZIqB/ILgX/xDeg0yuG\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{port}}/api/hash",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"hash"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHA1 with Salt",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClearText\" : {\r\n    \"Text\": \"Hello world\",\r\n    \"Encoding\":\"ascii\"\r\n  },\r\n  \"Hash\" : {\r\n    \"Text\":\"\",\r\n    \"Encoding\":\"base64\"\r\n  },\r\n  \"Operation\":{\r\n    \"Task\":\"hash\",\r\n    \"Alg\" : \"sha1\",\r\n    \"Size\" : \"512\"\r\n  },\r\n  \"Info\" : {\r\n    \"Salt\" : \"NaCl\",\r\n    \"Pepper\" : \"false\",\r\n    \"Key\" : \"cEIX6eKxCHm1w2ZIqB/ILgX/xDeg0yuG\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{port}}/api/hash",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"hash"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHA2 256",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClearText\" : {\r\n    \"Text\": \"Hello world\",\r\n    \"Encoding\":\"ascii\"\r\n  },\r\n  \"Hash\" : {\r\n    \"Text\":\"\",\r\n    \"Encoding\":\"base64\"\r\n  },\r\n  \"Operation\":{\r\n    \"Task\":\"hash\",\r\n    \"Alg\" : \"sha2\",\r\n    \"Size\" : \"256\"\r\n  },\r\n  \"Info\" : {\r\n    \"Salt\" : null,\r\n    \"Pepper\" : \"false\",\r\n    \"Key\" : \"cEIX6eKxCHm1w2ZIqB/ILgX/xDeg0yuG\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{port}}/api/hash",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"hash"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHA2 512 with Pepper",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClearText\" : {\r\n    \"Text\": \"Hello world\",\r\n    \"Encoding\":\"ascii\"\r\n  },\r\n  \"Hash\" : {\r\n    \"Text\":\"\",\r\n    \"Encoding\":\"base64\"\r\n  },\r\n  \"Operation\":{\r\n    \"Task\":\"hash\",\r\n    \"Alg\" : \"sha2\",\r\n    \"Size\" : \"512\"\r\n  },\r\n  \"Info\" : {\r\n    \"Salt\" : null,\r\n    \"Pepper\" : \"true\",\r\n    \"Key\" : \"cEIX6eKxCHm1w2ZIqB/ILgX/xDeg0yuG\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{port}}/api/hash",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"hash"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"protocolProfileBehavior": {}
